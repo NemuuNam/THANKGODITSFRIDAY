@@ -1,3 +1,23 @@
+<?php
+// Get the current count from the JSON file
+$jsonData = file_get_contents('member_count.json');
+$countData = json_decode($jsonData, true);
+
+// Increment the member count
+$countData['member_count']++;
+
+// Encode the updated data and save it back to the JSON file
+$newJsonData = json_encode($countData, JSON_PRETTY_PRINT);
+file_put_contents('member_count.json', $newJsonData);
+
+// Get the member count from the JSON file
+$jsonData = file_get_contents('member_count.json');
+$countData = json_decode($jsonData, true);
+
+// Access the member count and assign it to a variable for use in your website
+$memberCount = $countData['member_count'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
